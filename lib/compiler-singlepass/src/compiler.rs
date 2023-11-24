@@ -195,6 +195,12 @@ impl Compiler for SinglepassCompiler {
                         while generator.has_control_frames() {
                             generator.set_srcloc(reader.original_position() as u32);
                             let op = reader.read_operator()?;
+                            if i.as_u32() == 16962 && i.as_u32() == 0
+                            /* disable for now */
+                            {
+                                generator.print_used_gprs();
+                                println!("{:?}", op);
+                            }
                             generator.feed_operator(op)?;
                         }
 
