@@ -3634,13 +3634,13 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp1 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
                 let tmp2 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp1, tmp2];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let reread = this.get_label();
@@ -3693,13 +3693,13 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp1 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
                 let tmp2 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp1, tmp2];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let reread = this.get_label();
@@ -3811,13 +3811,13 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp1 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
                 let tmp2 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp1, tmp2];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let reread = this.get_label();
@@ -3870,13 +3870,13 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp1 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
                 let tmp2 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp1, tmp2];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let reread = this.get_label();
@@ -3929,13 +3929,13 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp1 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
                 let tmp2 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp1, tmp2];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let reread = this.get_label();
@@ -3988,13 +3988,13 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp1 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
                 let tmp2 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp1, tmp2];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let reread = this.get_label();
@@ -4047,13 +4047,13 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp1 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
                 let tmp2 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp1, tmp2];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let reread = this.get_label();
@@ -4106,13 +4106,13 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp1 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
                 let tmp2 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp1, tmp2];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let reread = this.get_label();
@@ -4165,13 +4165,13 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp1 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
                 let tmp2 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp1, tmp2];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let reread = this.get_label();
@@ -4224,13 +4224,13 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp1 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
                 let tmp2 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp1, tmp2];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let reread = this.get_label();
@@ -4283,13 +4283,13 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp1 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
                 let tmp2 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp1, tmp2];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let reread = this.get_label();
@@ -4342,13 +4342,13 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp1 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
                 let tmp2 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp1, tmp2];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let reread = this.get_label();
@@ -4401,13 +4401,13 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp1 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
                 let tmp2 = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp1, tmp2];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let reread = this.get_label();
@@ -4517,10 +4517,10 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let org =
@@ -4574,10 +4574,10 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let org =
@@ -4694,10 +4694,10 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let org =
@@ -4756,10 +4756,10 @@ impl Machine for MachineARM64 {
             heap_access_oob,
             unaligned_atomic,
             |this, addr| {
-                let mut temps = vec![];
                 let tmp = this.acquire_temp_gpr().ok_or_else(|| {
                     CompileError::Codegen("singlepass cannot acquire temp gpr".to_owned())
                 })?;
+                let mut temps = vec![tmp];
                 let dst =
                     this.location_to_reg(Size::S32, ret, &mut temps, ImmType::None, false, None)?;
                 let org =
