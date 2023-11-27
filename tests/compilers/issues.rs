@@ -442,3 +442,58 @@ fn large_number_local(mut config: crate::Config) -> Result<()> {
     assert_eq!(&Value::I64(1_i64), result.get(0).unwrap());
     Ok(())
 }
+
+/// Unreleased registers in arm64 that cause errors when emmiting code in native call.
+///
+/// Note: this one is specific to Singlepass, but we want to test in all
+/// available compilers.
+///
+/// https://github.com/wasmerio/wasmer/issues/4092
+#[compiler_test(issues)]
+fn issue_4092(mut config: crate::Config) -> Result<()> {
+    let mut store = config.store();
+    // TODO: test more atomic operators?
+    let wat = r#"
+        (module
+          (func (;0;)
+            ;; problematic atomic operation
+            i32.const 12345
+            i32.const 0
+            i32.atomic.rmw8.and_u
+            ;; problematic atomic operation
+            i32.const 12345
+            i32.const 1
+            i32.atomic.rmw8.add_u
+            ;; problematic atomic operation
+            i32.const 12345
+            i32.const 0
+            i32.const 1
+            i32.atomic.rmw.cmpxchg
+            ;; problematic atomic operation
+            i32.const 12345
+            i32.const 0
+            i32.const 1
+            i32.atomic.rmw16.cmpxchg_u
+            ;; operation that emits native call
+            i32.const 1024
+            i32.const 0
+            i32.const 128
+            memory.init 1
+            ;; cleanup (unused results from atomic operations left on stack)
+            drop
+            drop
+            drop
+            drop
+          )
+          ;; needed for memory init
+          (memory 1)
+          (data "test")
+          (data "test")
+        )
+    "#;
+    let mut env = FunctionEnv::new(&mut store, ());
+    let module = Module::new(&store, wat)?;
+    //let imports: Imports = imports! {};
+    //let instance = Instance::new(&mut store, &module, &imports)?;
+    Ok(())
+}
