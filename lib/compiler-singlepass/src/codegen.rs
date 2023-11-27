@@ -754,21 +754,6 @@ impl<'a, M: Machine> FuncGen<'a, M> {
         );
     }
 
-    pub fn print_used_gprs(&self) {
-        print!("  [");
-        let used_gprs = self.machine.get_used_gprs();
-        for r in used_gprs.iter() {
-            let content = self.state.register_values[self.machine.index_from_gpr(*r).0].clone();
-            let is_undef = if content == MachineValue::Undefined {
-                "X"
-            } else {
-                "OK"
-            };
-            print!("{:?}={}; ", *r, is_undef)
-        }
-        println!("]");
-    }
-
     /// Emits a Native ABI call sequence.
     ///
     /// The caller MUST NOT hold any temporary registers allocated by `acquire_temp_gpr` when calling
